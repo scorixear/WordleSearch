@@ -1,0 +1,96 @@
+﻿<Window x:Class="WordleSearch.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WordleSearch.ViewModel"
+        mc:Ignorable="d"
+        Title="WordleSearch" Height="800" Width="800" Background="#121213">
+    <Window.DataContext>
+        <local:MainWindowModel/>
+    </Window.DataContext>
+    <Grid Background="#121213">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#121213">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBox Background="#3A3A3C" Foreground="White" Grid.Column="0" Text="{Binding Text1, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center" VerticalContentAlignment="Center" Margin="5" FontSize="80px" TextChanged="TextBox_TextChanged"/>
+                <TextBox Background="#3A3A3C" Foreground="White" Grid.Column="1" Text="{Binding Text2, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center" VerticalContentAlignment="Center" Margin="5" FontSize="80px" TextChanged="TextBox_TextChanged"/>
+                <TextBox Background="#3A3A3C" Foreground="White" Grid.Column="2" Text="{Binding Text3, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center" VerticalContentAlignment="Center" Margin="5" FontSize="80px" TextChanged="TextBox_TextChanged"/>
+                <TextBox Background="#3A3A3C" Foreground="White" Grid.Column="3" Text="{Binding Text4, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center" VerticalContentAlignment="Center" Margin="5" FontSize="80px" TextChanged="TextBox_TextChanged"/>
+                <TextBox Background="#3A3A3C" Foreground="White" Grid.Column="4" Text="{Binding Text5, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center" VerticalContentAlignment="Center" Margin="5" FontSize="80px" TextChanged="TextBox_TextChanged"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Background="#121213">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="0" Grid.Row="0" Name="QButton" Content="Q" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="1" Grid.Row="0" Name="WButton" Content="W" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="2" Grid.Row="0" Name="EButton" Content="E" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="3" Grid.Row="0" Name="RButton" Content="R" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="4" Grid.Row="0" Name="TButton" Content="T" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="5" Grid.Row="0" Name="YButton" Content="Y" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="6" Grid.Row="0" Name="UButton" Content="U" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="7" Grid.Row="0" Name="IButton" Content="I" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="8" Grid.Row="0" Name="OButton" Content="O" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="9" Grid.Row="0" Name="PButton" Content="P" Click="OnLetterButtonPressed"/>
+                                                                            
+            <Button Grid.Column="0" Grid.Row="1" Name="AButton" Content="A" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="1" Grid.Row="1" Name="SButton" Content="S" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="2" Grid.Row="1" Name="DButton" Content="D" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="3" Grid.Row="1" Name="FButton" Content="F" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="4" Grid.Row="1" Name="GButton" Content="G" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="5" Grid.Row="1" Name="HButton" Content="H" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="6" Grid.Row="1" Name="JButton" Content="J" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="7" Grid.Row="1" Name="KButton" Content="K" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="8" Grid.Row="1" Name="LButton" Content="L" Click="OnLetterButtonPressed"/>
+                                                                            
+            <Button Grid.Column="0" Grid.Row="2" Name="ZButton" Content="Z" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="1" Grid.Row="2" Name="XButton" Content="X" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="2" Grid.Row="2" Name="CButton" Content="C" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="3" Grid.Row="2" Name="VButton" Content="V" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="4" Grid.Row="2" Name="BButton" Content="B" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="5" Grid.Row="2" Name="NButton" Content="N" Click="OnLetterButtonPressed"/>
+            <Button Grid.Column="6" Grid.Row="2" Name="MButton" Content="M" Click="OnLetterButtonPressed"/>
+
+            <Button Grid.Column="9" Grid.Row="2" Name="ResetButton" Content="Reset" Click="OnResetButtonPressed"/>
+            
+
+        </Grid>
+        <Grid Grid.Row="2" Background="#121213">
+            <ListView Foreground="White" Background="#121213" x:Name="OutputList" ItemsSource="{Binding OutputListSource}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True"/>
+        </Grid>
+    </Grid>
+</Window>
+<!--<Window
+    x:Class="WorldeSearch.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+</Window>-->
